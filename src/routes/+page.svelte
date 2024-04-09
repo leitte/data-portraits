@@ -25,8 +25,16 @@
     }
 </script>
 
+<svelte:head>
+    <title>Data Portrait</title>
+    <meta name="description" content="Computer generated personal data portraits." />
+</svelte:head>
 
-<h1>Data Portrait</h1>
+<h1 style:text-align="left">Data Portrait</h1>
+<div style:margin-bottom="30px">Answer the following questions 
+    and design your personal data portrait. Each answer maps to 
+    a visual element and changes its color or shape.
+</div>
 
 <div class="wrapper">
     {#key $questionaire}
@@ -45,14 +53,7 @@
     <Questions />
 </div>
 
-
-<p>Based on Data Portraits by <a href="http://giorgialupi.com/data-portraits-at-ted2017">Giorgia Lupi</a>.</p>
-
 <style>
-    :global(body) {
-        font-family: sans-serif;
-    }
-
     .wrapper {
         display: flex;
         gap: 30px;
