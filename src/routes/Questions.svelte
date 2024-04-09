@@ -1,10 +1,14 @@
 <script>
-    import { questionaire } from "./stores";
+    import { questionaire, nameFirst, nameSecond, textFontSize } from "./stores";
 
     let answers = new Array($questionaire.length).fill(-1);
 </script>
 
 <form>
+    <span>What's your first name?</span> <input bind:value={$nameFirst} />
+    <span>What's your last name?</span> <input bind:value={$nameSecond} />
+    <span>Font size of text</span>
+    <input type="range" bind:value={$textFontSize} min="2" max="9" />
     {#each $questionaire as item, qid }
         <span>{item.question}</span>
         <select
@@ -20,25 +24,11 @@
     {/each}
 </form>
 
-{#key answers}
-    <div class="list">
-        {#each $questionaire as q}
-            <span>{q.question} {q.answer}</span>
-        {/each}
-
-        <span>{answers}</span>
-    </div>
-{/key}
 
 <style>
     form {
         display: flex;
         flex-direction: column;
         gap: 5px;
-    }
-
-    .list {
-        display: flex;
-        flex-direction: column;
     }
 </style>
